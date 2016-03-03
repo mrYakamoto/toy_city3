@@ -50,6 +50,14 @@ class Product
     products_in_stock
   end
 
+  def self.purchases_by_item
+    purchases = {}
+    Product.all.each do |product_obj|
+      purchases[product_obj.title] = product_obj.number_sold
+    end
+    purchases
+  end
+
   def validates_title_uniqueness(title)
     Product.all.each do |existing_product|
       raise DuplicateProductError, "#{title} already exists." if existing_product.title == title
@@ -57,8 +65,12 @@ class Product
     true
   end
 
+  def number_sold
+    num_sold = 0
+    Transaction.all.each do |transaction_obj|
+      num_sold += 1 if transaction_obj.product == self
+    end
+    num_sold
+  end
+
 end
-
-
-
-

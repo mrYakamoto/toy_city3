@@ -62,5 +62,16 @@ puts Transaction.all.count # Should return 2
 transaction2 = Transaction.find(2)
 puts transaction2.product == nanoblock # Should return true
 
-walter.purchase(firehouse)
+# walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+
+puts "="*10 + " Added Functionality " + "="*10
+
+puts nanoblock.number_sold
+# should return 2
+puts Product.purchases_by_item
+# should return hash of all items with number purchased {"LEGO Firehouse Headquarter"=>0, "Nano Block Empire State Building"=>2, "LEGO Iron Man vs. Ultron"=>0}
+
+puts walter.purchase_history
+# should return hash of products bought with the number of times purchased{"Nano Block Empire State Building"=>2}
+
