@@ -1,4 +1,6 @@
 class Product
+  attr_reader :title, :price
+  attr_accessor :stock
 
   def initialize(options = {})
     validates_title_uniqueness(options.fetch(:title))
@@ -8,24 +10,8 @@ class Product
 
   end
 
-  def title
-    @title
-  end
-
-  def price
-    @price
-  end
-
-  def stock
-    @stock
-  end
-
-  def stock=(num)
-    @stock = num
-  end
-
   def in_stock?
-    self.stock > 0 ? true : false
+    self.stock > 0
   end
 
   def self.all
