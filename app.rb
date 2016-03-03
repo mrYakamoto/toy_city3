@@ -72,3 +72,5 @@ puts x
 puts x.number_sold
 puts Product.purchase_numbers
 
+puts walter.purchase_history
+

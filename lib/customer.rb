@@ -12,6 +12,16 @@ class Customer
     Transaction.new(self, product)
   end
 
+  def purchase_history
+    buyer_history = Hash.new(0)
+    Transaction.all.each do |trans_obj|
+      if (trans_obj.customer == self)
+        buyer_history[trans_obj.product.title] += 1
+      end
+    end
+    buyer_history
+  end
+
   def self.all
     all_customers = []
     ObjectSpace.each_object(Customer) do |customer|
