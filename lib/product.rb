@@ -1,13 +1,11 @@
 class Product
 
   def initialize(options = {})
+    validates_title_uniqueness(options.fetch(:title))
     @title = options.fetch(:title)
     @price = options.fetch(:price)
     @stock = options.fetch(:stock)
 
-    Product.all.each do |title|
-      raise DuplicateProductError, "#{@title} already exists." if title == @title
-    end
   end
 
   def title
@@ -20,6 +18,10 @@ class Product
 
   def stock
     @stock
+  end
+
+  def stock=(num)
+    @stock = num
   end
 
   def in_stock?
@@ -47,6 +49,14 @@ class Product
     end
     products_in_stock
   end
+
+  def validates_title_uniqueness(title)
+    Product.all.each do |existing_product|
+      raise DuplicateProductError, "#{title} already exists." if existing_product.title == title
+    end
+    true
+  end
+
 end
 
 
