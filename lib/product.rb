@@ -57,8 +57,12 @@ class Product
     true
   end
 
+  def number_sold
+    num_sold = 0
+    Transaction.all.each do |transaction_obj|
+      num_sold += 1 if transaction_obj.product == self
+    end
+    num_sold
+  end
+
 end
-
-
-
-

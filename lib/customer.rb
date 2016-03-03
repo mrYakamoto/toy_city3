@@ -32,4 +32,5 @@ class Customer
     end
     true
   end
+
 end
