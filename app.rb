@@ -70,4 +70,5 @@ puts "="*50
 x = Product.all[2]
 puts x
 puts x.number_sold
+puts Product.purchase_numbers
 
