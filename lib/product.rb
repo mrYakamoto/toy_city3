@@ -50,7 +50,7 @@ class Product
     products_in_stock
   end
 
-  def self.purchase_numbers
+  def self.purchases_by_item
     purchases = {}
     Product.all.each do |product_obj|
       purchases[product_obj.title] = product_obj.number_sold

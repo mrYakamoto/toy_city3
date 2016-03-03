@@ -1,0 +1,23 @@
+--How long did you spend working on this project?
+
+I spent a couple hours working on this project.
+
+
+--What was the most rewarding challenge you conquered?
+
+Creating methods from scratch that I'm used to ActiveRecord supplying was interesting and rewarding to me. Figuring out how to do #all and the validations was a fun challenge that I'm glad I did.
+
+
+--What two additional features did you build? Why?
+
+I added an instance method to the Product class which returns the number of times the product's been sold. I also added a class method to Product where each product and the number of times that product's been sold are returned as key value pairs in a hash. This makes it easy to see at a glace how much items are selling.
+
+I added a purchase history method to Customer instances. This way, an individual customer's past purchases can easily be accessed. This data could be useful for recognizing trends among buyers.
+
+
+--Where do you still have room to grow?
+
+I could use some more experience creating/raising custom Error classes.
+
+
+
